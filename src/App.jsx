@@ -47,20 +47,53 @@ const pizzaData = [
 
 const App = () => {
   return (
-    <div>
-      <h1>App</h1>
-      <Pizza></Pizza>
-      <Pizza></Pizza>
-      <Pizza></Pizza>
+    <div className="container">
+      <Header></Header>
+      <Menu></Menu>
+      <Footer></Footer>
     </div>
   );
+};
+
+const Header = () => {
+  return (
+    <header className="header">
+      <h1>Pizza Planet</h1>
+    </header>
+  );
+};
+
+const Menu = () => {
+  return (
+    <main className="menu">
+      <h2>Our Menu</h2>
+      <Pizza></Pizza>
+      <Pizza></Pizza>
+      <Pizza></Pizza>
+    </main>
+  );
+};
+const Footer = () => {
+  const hour = new Date().getHours();
+  const openHour = 9;
+  const closedHour = 22;
+  const isOpen = hour >= openHour && hour < closedHour;
+  console.log(isOpen);
+  console.log(hour);
+
+  return (
+    <footer className="footer">
+      {new Date().toLocaleTimeString()} We are currently Open!
+    </footer>
+  );
+  // return React.createElement("footer", null, "We are currently Open!");
 };
 
 const Pizza = () => {
   return (
     <>
       <img src="pizzas\spinaci.jpg" alt="Spinachi Pizza" />
-      <h1>Pizza Spinaci</h1>
+      <h3>Pizza Spinaci</h3>
       <p>Tomato, mozarella, spinach, and ricotta cheese</p>
     </>
   );
